@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>dangky</title>
+
+</head>
+<body>
+    <header>
+        
+            <div  class="header.logo">          
+                <img style="height: 100px; width: 80px;"  src="logo.jpg">
+            </div>
+            <div class="menu">
+                <li><a href="index.html"> Trang Chủ</a></li>
+                <li><a href="card.html"> Giới thiệu</a></li>
+                <li> <a href="cartegory.html"> Sản Phẩm</a></li>
+                <li><a href=""> chi tiết sản phẩm</a>
+                    <ul class="sub-menu">
+                        <li> <a href="product1.html"> Cà Phê Gói Nguyên Chất</a></li>
+                        <li> <a href="product3.html"> Cà Phê Rang Pha Phin</a></li>
+                        <li> <a href="product.html"> Cà Phê Rang Pha Máy</a></li>
+                        <li> <a href="product2.html"> Cà phê Rang Robusta</a></li>
+                        <li> <a href="product4.html"> Cà Phê Nhân ROBUSTA </a></li>
+                    </ul>
+                </li>
+            </div>
+            <div class="others">
+                <li><input placeholder="tìm kiếm" type="text"> <i class="fas fa-search"></i></li>
+
+                <li> <a class="fa fa-shopping-bag" href="shopping.html"></a></li>
+            </div>
+    </header>
+
+<!--------đang ky------>
+<div class="to">
+    <div class="form">
+        <h2>Đăng ký </h2>
+        <i class="fa fa-user"></i>
+        <label style="margin-left: -150px;">Họ và tên</label>
+        <input type="text" name="hoten">
+        <label>Số điện thoại</label>
+        <input type="text" name="sdt">	
+        <label style="margin-left: -180px;">Email</label>
+        <input type="text" name="email"> 
+        <input id="submit" type="submit" name="submit" value="Gửi">
+        <div class="logina">
+            <p>Don't have a account <a href="formĐN.html">Login</a></p>
+        </div>
+    </div>	
+    			
+</div>
+
+
+    <div class="footer-top">
+        <li><a href="index.html"><img src="logo.jpg"></a></li>
+  
+        <li><a href="card.html">Giới thiệu</a></li>
+        <li>
+            <a href="https://www.facebook.com/profile.php?id=100011262459973" class=" fab fa-facebook"></a>
+        </li>
+    </div>
+    <div class="footer-center">
+    <p>Hê sờ lô, chào mừng các bạn đến với cafe Văn Nam nơi cung cấp cho các bạn các loại cà phê ngon, chất lượng, uy tín<br>
+    Địa chỉ của chúng tôi: xã Đạ K' Nàng, huyện Đam Rông, tỉnh Lâm Đồng, Việt Nam<br>
+    Quý khách đặt hàng qua số điện thoại: <b>035 3317 730</b>
+    </p>
+    </div>
+    <div class="footer-bottom">
+        2001212223_PhamVanNam
+        <h3>Cafe Văn Nam - Hẹn gặp lại :3</h3>
+    </div>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".aspect-radio-169 img")
+    const imgContainer = document.querySelector('.aspect-radio-169 ')
+    const dotItem= document.querySelectorAll(".dot")
+    let imgNuber = imgPosition.length
+    let index = 0
+    //console.log(imgPosition)
+    //câu lệnh foreach mình cho nó dịch chuyển các item các phần tử lần lượt theo chỉ số 100
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider(index)
+        })
+    })
+    function imgSlide(){
+        index++;
+        console.log(index)
+        if(index>=imgNuber){index = 0}
+        slider(index)
+    }
+    function slider(index){
+        imgContainer.style.left = "-" + index*100 + "%"
+        const dotActive = document.querySelector('.active')
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+
+    setInterval(imgSlide,5000)
+
+
+</script>
+
+</html>

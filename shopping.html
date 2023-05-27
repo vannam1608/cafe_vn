@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>shopping cart</title>
+
+</head>
+<body>
+    <header>
+        
+            <div  class="header.logo">          
+                <img style="height: 100px; width: 80px;"  src="logo.jpg">
+            </div>
+            <div class="menu">
+                <li><a href="card.html"> Giới thiệu</a></li>
+                <li> <a href="cartegory.html"> Sản Phẩm</a></li>
+                <li><a href=""> chi tiết sản phẩm</a>
+                    <ul class="sub-menu">
+                        <li> <a href="product1.html"> Cà Phê Gói Nguyên Chất</a></li>
+                        <li> <a href="product3.html"> Cà Phê Rang Pha Phin</a></li>
+                        <li> <a href="product.html"> Cà Phê Rang Pha Máy</a></li>
+                        <li> <a href="product2.html"> Cà phê Rang Robusta</a></li>
+                        <li> <a href="product4.html"> Cà Phê Nhân ROBUSTA </a></li>
+                    </ul>
+                </li>
+            </div>
+            <div class="others">
+                <li><input placeholder="tìm kiếm" type="text"> <i class="fas fa-search"></i></li>
+                <li> <a class="fa fa-user" href="formĐK.html" ></a></li>
+                
+            </div>
+    </header>
+    </div>
+    <div class="hi-shopping">
+    <div class="container_shopping">
+        
+            <h3>Mời bạn đến với giỏ hàng</h3>
+            <div class="shopping">
+                <img src="cart.png">
+                <span class="quantity">0</span>
+            </div>   
+        <div class="list">     
+        </div>
+    </div>
+    <div class="card">
+        <h1>Card</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Đóng</div>
+        </div>
+    </div>
+    </div>
+    <!--------footer---------->
+    <section class="ki-container" >
+        <p>ĐĂNG KÝ NHẬN TIN</p>
+       <a href="formĐK.html" > <input  type="text "  placeholder="nhấn vào để đăng ký"  ></a>
+    </section>
+    <!--------footer---------->
+    <div class="footer-top">
+        <li><a href=""><img src="logo.jpg"></a></li>
+
+        <li><a href="card.html">Giới thiệu</a></li>
+        <li>
+            <a href="https://www.facebook.com/profile.php?id=100011262459973" class=" fab fa-facebook"></a>
+        </li>
+    </div>
+    <div class="footer-center">
+    <p>Hê sờ lô, chào mừng các bạn đến với cafe Văn Nam nơi cung cấp cho các bạn các loại cà phê ngon, chất lượng, uy tín<br>
+    Địa chỉ của chúng tôi: xã Đạ K' Nàng, huyện Đam Rông, tỉnh Lâm Đồng, Việt Nam<br>
+    Quý khách đặt hàng qua số điện thoại: <b>035 3317 730</b>
+    </p>
+    </div>
+    <div class="footer-bottom">
+        2001212223_PhamVanNam
+        <h3>Cafe Văn Nam - Hẹn gặp lại :3</h3>
+    </div>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".aspect-radio-169 img")
+    const imgContainer = document.querySelector('.aspect-radio-169 ')
+    const dotItem= document.querySelectorAll(".dot")
+    let imgNuber = imgPosition.length
+    let index = 0
+    //console.log(imgPosition)
+    //câu lệnh foreach mình cho nó dịch chuyển các item các phần tử lần lượt theo chỉ số 100
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider(index)
+        })
+    })
+    function imgSlide(){
+        index++;
+        console.log(index)
+        if(index>=imgNuber){index = 0}
+        slider(index)
+    }
+    function slider(index){
+        imgContainer.style.left = "-" + index*100 + "%"
+        const dotActive = document.querySelector('.active')
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+
+    setInterval(imgSlide,5000)
+    let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+let list = document.querySelector('.list');
+let listCard = document.querySelector('.listCard');
+let body = document.querySelector('body');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
+
+openShopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeShopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
+
+let products = [
+    {
+        id: 1,
+        name: 'Nescafe 3 in 1',
+        image: 'caphegoi1.jpg',
+        price: 51000
+    },
+    {
+        id: 2,
+        name: 'Nescafe 3 in 1 Sữa đá',
+        image: 'caphegoi2.jpg',
+        price: 120000
+    },
+    {
+        id: 3,
+        name: 'Cà Phê Rang Trung Nguyên',
+        image: 'capherangxay1.jpg',
+        price: 190000
+    },
+    {
+        id: 4,
+        name: 'The No.1 Coffee',
+        image: 'capherangxay2.jpg',
+        price: 190000
+    },
+    {
+        id: 5,
+        name: 'Cà Phê Pha Phin Giấy',
+        image: 'capherangxay3.jpg',
+        price: 210000
+    },
+    {
+        id: 6,
+        name: 'Cà Phê Rang Pha Máy zin100',
+        image: 'phamay1.jpg',
+        price: 240000
+    },
+    {
+        id: 7,
+        name: 'Cà Phê Rang Pha Máy gu đậm ',
+        image: 'phamay2.jpg',
+        price: 485000
+    },
+    {
+        id: 8,
+        name: 'robusta Mộc',
+        image: 'robusta1.jpg',
+        price: 240000
+    },
+    {
+        id: 9,
+        name: 'Cà Phê Rang Pha Máy zin100',
+        image: 'phamay1.jpg',
+        price: 129000
+    },
+    {
+        id: 10,
+        name: 'REY Cafe robusta',
+        image: 'robusta2.jpg',
+        price: 210000
+    },
+   
+    {
+        id: 11,
+        name: 'ReTro robusta',
+        image: 'robusta3.jpg',
+        price: 150000
+    },
+    {
+        id: 12,
+        name: 'Nhân cà phê robusta',
+        image: 'nhan.jpg',
+        price: 60000
+    },
+];
+let listCards  = [];
+function initApp(){
+    products.forEach((value, key) =>{
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('item');
+        newDiv.innerHTML = `
+            <img src="${value.image}">
+            <div class="title">${value.name}</div>
+            <div class="price">${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})">Thêm </button>`;
+        list.appendChild(newDiv);
+    })
+}
+initApp();
+function addToCard(key){
+    if(listCards[key] == null){
+        // copy product form list to list card
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        listCards[key].quantity = 1;
+    }
+    reloadCard();
+}
+function reloadCard(){
+    listCard.innerHTML = '';
+    let count = 0;
+    let totalPrice = 0;
+    listCards.forEach((value, key)=>{
+        totalPrice = totalPrice + value.price;
+        count = count + value.quantity;
+        if(value != null){
+            let newDiv = document.createElement('li');
+            newDiv.innerHTML = `
+                <div><img src="${value.image}"/></div>
+                <div>${value.name}</div>
+                <div>${value.price.toLocaleString()}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                </div>`;
+                listCard.appendChild(newDiv);
+        }
+    })
+    total.innerText = totalPrice.toLocaleString();
+    quantity.innerText = count;
+}
+function changeQuantity(key, quantity){
+    if(quantity == 0){
+        delete listCards[key];
+    }else{
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+    }
+    reloadCard();
+}
+
+</script>
+
+</html>
